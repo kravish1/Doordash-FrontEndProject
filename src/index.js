@@ -1,12 +1,45 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import App from './components/App';
+import { BrowserRouter as Router, Switch, Route, withRouter } from 'react-router-dom';
+import 'semantic-ui-css/semantic.min.css';
+import Login from './components/Auth/Login';
+import { createStore } from 'redux';
+import { Provider, connect } from 'react-redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import rootReducer from './reducers';
+import { setUser } from './actions';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const store = createStore(rootReducer,composeWithDevTools());
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+class Root extends React.Component{
+
+
+    componentDidMount(){
+        
+    }
+
+    render(){
+        return  (
+            <Switch>
+             <Route exact path="/" component={App}  />
+             <Route path="/login" render={() => {
+                    return <Login setUser={this.props.setUser} history={this.props.history}/>
+                    }} />
+            </Switch>
+    
+        )
+      }
+}
+  
+  const RootWithAuth = withRouter(connect(null,{ setUser })(Root));
+  
+  ReactDOM.render(<Provider store={store}>
+                    <Router>
+                      <RootWithAuth />
+                    </Router>
+                  </Provider>, document.getElementById('root'));
+
+
 serviceWorker.unregister();

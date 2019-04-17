@@ -1,0 +1,33 @@
+html,
+body,
+.app{
+  height: 100vh;
+  background: #eee;
+  padding: 1em;
+}
+
+.message__self{
+  border-left : 2px solid orange;
+  padding-left: 8px;
+  color : red;
+}
+
+.messages{
+  height:640px;
+  overflow-y:scroll;
+}
+
+.message__form{
+  position:fixed !important;
+  bottom:1em;
+  margin-left:360px !important;
+  left:0;
+  z-index:200;
+  width : 700px;
+  display:flex;
+  justify-content:space-around;
+}
+
+.active__user{
+  color : red;
+}
