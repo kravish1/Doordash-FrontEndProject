@@ -1,5 +1,24 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# DoorDash Frontend Interview Project
+* Author: Karthik Ravishanker 
+* Framework / Tools : React, Redux, Semantic-UI-React, 
+
+## Steps to Run the Project
+
+### 1. Installing minimum deps
+Make sure you have `node` installed, with a version greater than `7.0.0`. 
+Once you have a good `node` installed, run `npm install` in this repo to get your dependencies.
+ 
+
+### 2. Running the api server
+You can run `node server.js` from the project directory
+
+
+### 3. Serving your app
+By default, you can run `npm start` to run your app, serving the files from `/public`.
+
+
 ## Available Scripts
 
 In the project directory, you can run:
